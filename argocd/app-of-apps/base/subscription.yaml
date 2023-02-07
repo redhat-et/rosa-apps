@@ -10,7 +10,7 @@ spec:
   source:
     path: argocd/overlays/rosa/projects
     repoURL: https://github.com/redhat-et/rosa-apps.git
-    targetRevision: HEAD
+    targetRevision: app-of-app
   syncPolicy:
     automated:
       selfHeal: true
