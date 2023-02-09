@@ -4,7 +4,7 @@ metadata:
   name: global-project
 spec:
   sourceRepos:
-    - 'https://github.com/operate-first/*'
+    - 'https://github.com/redhat-et/*'
   namespaceResourceWhitelist:
     - group: ''
       kind: Binding

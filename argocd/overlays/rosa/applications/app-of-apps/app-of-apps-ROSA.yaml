@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: opf-app-of-apps-ROSA
+  name: app-of-apps-ROSA
 spec:
   destination:
-    namespace: argocd
-    name: ROSA
+    namespace: openshift-gitops
+    name: in-cluster
   project: rosa
   source:
     path: argocd/overlays/rosa/applications/envs/rosa
-    repoURL: https://github.com/redhat-et/rosa-apps.git
-    targetRevision: HEAD
+    repoURL: https://github.com/gregory-pereira/rosa-apps.git
+    targetRevision: migrate-op1st-argocd-to-rosa
   syncPolicy:
     syncOptions:
     - Validate=false

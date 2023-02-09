@@ -1,13 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: operate-first
+  name: rosa
   labels:
     project-template: global
 spec:
-  clusterResourceWhitelist:
-    - group: kubeflow.org
-      kind: Profile
   destinations:
     - namespace: '*'
       server: '*'
@@ -17,15 +14,15 @@ spec:
     - name: project-admin
       description: Read/Write access to this project only
       policies:
-        - p, proj:operate-first:project-admin, applications, get, operate-first/*, allow
-        - p, proj:operate-first:project-admin, applications, create, operate-first/*, allow
-        - p, proj:operate-first:project-admin, applications, update, operate-first/*, allow
-        - p, proj:operate-first:project-admin, applications, delete, operate-first/*, allow
-        - p, proj:operate-first:project-admin, applications, sync, operate-first/*, allow
-        - p, proj:operate-first:project-admin, applications, override, operate-first/*, allow
-        - p, proj:operate-first:project-admin, applications, action/*, operate-first/*, allow
+        - p, proj:rosa:project-admin, applications, get, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, create, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, update, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, delete, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, sync, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, override, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, action/*, rosa/*, allow
       groups:
-        - operate-first
+        - rosa
   namespaceResourceWhitelist:
     - group: argoproj.io
       kind: Application

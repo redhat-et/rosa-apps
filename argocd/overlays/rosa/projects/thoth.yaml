@@ -23,4 +23,4 @@ spec:
         - p, proj:thoth:project-admin, applications, action/*, thoth/*, allow
       groups:
         - thoth
-        - operate-first
+        - rosa

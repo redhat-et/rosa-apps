@@ -4,13 +4,13 @@ metadata:
   name: argocd
 spec:
   destination:
-    name: moc-infra
-    namespace: argocd
-  project: default
+    namespace: openshift-gitops
+    name: in-cluster
+  project: rosa
   source:
     path: argocd/overlays/rosa
-    repoURL: https://github.com/redhat-et/rosa-apps.git
-    targetRevision: HEAD
+    repoURL: https://github.com/gregory-pereira/rosa-apps.git
+    targetRevision: migrate-op1st-argocd-to-rosa
   syncPolicy:
     syncOptions:
       - Validate=false
