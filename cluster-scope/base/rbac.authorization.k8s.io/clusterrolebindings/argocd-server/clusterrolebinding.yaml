@@ -5,12 +5,12 @@ metadata:
     app.kubernetes.io/name: argocd-server
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/component: server
-  name: argocd-server
+  name: openshift-gitops-argocd-dex-server
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: argocd-server
+  name: openshift-gitops-argocd-dex-server
 subjects:
 - kind: ServiceAccount
-  name: argocd-server
-  namespace: argocd
+  name: openshift-gitops-argocd-server
+  namespace: openshift-gitops

@@ -6,7 +6,7 @@ spec:
   destination:
     name: in-cluster
     namespace: openshift-gitops
-  project: rosa
+  project: default
   source:
     path: argocd/overlays/rosa/projects
     repoURL: https://github.com/gregory-pereira/rosa-apps.git

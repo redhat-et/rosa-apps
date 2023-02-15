@@ -3,7 +3,7 @@ kind: AppProject
 metadata:
   name: thoth
   labels:
-    project-template: global
+    project-template: global-project
 spec:
   destinations:
     - namespace: 'thoth-*'

@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../base/core/namespaces/apex
+  - ../../base/core/namespaces/apex-monitoring
+  - ../../base/core/namespaces/apex-qa
+  - ../../base/core/namespaces/copilot-ops
+  - ../../base/core/namespaces/ipfs
+#  - ../../base/core/namespaces/janus-idp
+#  - ../../base/core/namespaces/robozome
+#  - ../../base/core/namespaces/sigstore-aas
+#  - ../../base/core/namespaces/tekton-pipelines
+#  - ../../base/core/namespaces/thoth-amun-api-prod
+#  - ../../base/core/namespaces/thoth-amun-inspection-prod
+#  - ../../base/core/namespaces/thoth-backend-prod
+#  - ../../base/core/namespaces/thoth-bots-prod
+#  - ../../base/core/namespaces/thoth-cre-integration
+#  - ../../base/core/namespaces/thoth-deployment-examples
+#  - ../../base/core/namespaces/thoth-frontend-prod
+#  - ../../base/core/namespaces/thoth-graph-prod
+#  - ../../base/core/namespaces/thoth-infra-prod
+#  - ../../base/core/namespaces/thoth-middletier-prod
+  - ../../base/operators.coreos.com/operatorgroups/apex
+  - ../../bundles/opentelemetry-collector-operator
+  - ../../bundles/jaeger-operator
+  - ../../bundles/tekton-chains

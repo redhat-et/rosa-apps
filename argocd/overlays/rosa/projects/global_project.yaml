@@ -5,6 +5,7 @@ metadata:
 spec:
   sourceRepos:
     - 'https://github.com/redhat-et/*'
+    - 'https://github.com/gregory-pereira/rosa-apps.git'
   namespaceResourceWhitelist:
     - group: ''
       kind: Binding
