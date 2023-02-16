@@ -23,4 +23,5 @@ resources:
   - ../../base/operators.coreos.com/operatorgroups/apex
   - ../../bundles/opentelemetry-collector-operator
   - ../../bundles/jaeger-operator
+  - ../../bundles/acme-operator
   - ../../bundles/tekton-chains
