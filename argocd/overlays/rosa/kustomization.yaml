@@ -4,12 +4,12 @@ namespace: argocd
 resources:
 - ../../cluster-resources
 - applications
+- configmaps
 - routes/argocd-google.yaml
 configMapGenerator:
 - name: argocd-cm
   behavior: replace
   files:
-  - configs/argo_cm/dex.config
   - configs/argo_cm/configManagementPlugins
   - configs/argo_cm/globalProjects
   - configs/argo_cm/resource.exclusions

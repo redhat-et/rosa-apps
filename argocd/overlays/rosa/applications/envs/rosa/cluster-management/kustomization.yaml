@@ -4,3 +4,4 @@ resources:
   - argocd.yaml
   - argocd-projects.yaml
   - cluster-resources.yaml
+  # - cert-manager.yaml

@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cert-manager
+spec:
+  destination:
+    name: in-cluster
+    namespace: openshift-ingress
+  project: cluster-management
+  source:
+    repoURL: https://github.com/gregory-pereira/rosa-apps.git
+    path: cert-manager/overlays/rosa
+    targetRevision: migrate-op1st-argocd-to-rosa
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false

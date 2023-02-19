@@ -21,6 +21,8 @@ resources:
 #  - ../../base/core/namespaces/thoth-infra-prod
 #  - ../../base/core/namespaces/thoth-middletier-prod
   - ../../base/operators.coreos.com/operatorgroups/apex
+  - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
+  - ../../bundles/cert-manager
   - ../../bundles/opentelemetry-collector-operator
   - ../../bundles/jaeger-operator
   - ../../bundles/acme-operator
