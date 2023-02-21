@@ -9,17 +9,11 @@ metadata:
 rules:
 - apiGroups:
   - '*'
-  # - quota.openshift.io
-  # - limitranges
   resources:
   - '*'
-  # - resourcequotas
   verbs:
   - '*'
 - nonResourceURLs:
   - '*'
-  verbs:
-  - '*'
-- apiGroups:
   verbs:
   - '*'

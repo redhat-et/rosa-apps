@@ -5,3 +5,4 @@ resources:
   - argocd-projects.yaml
   - cluster-resources.yaml
   # - cert-manager.yaml
+  - sealed-secrets.yaml
