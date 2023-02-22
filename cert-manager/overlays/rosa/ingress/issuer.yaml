@@ -2,10 +2,9 @@ apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
   name: ingress-letsencrypt
-  namespace: openshift-ingress
 spec:
   acme:
-    email: ops-team@operate-first.cloud
+    email: rcook@redhat.com
     privateKeySecretRef:
       name: letsencrypt-key
     server: https://acme-v02.api.letsencrypt.org/directory
@@ -21,4 +20,4 @@ spec:
             name: aws-route53-credentials
       selector:
         dnsZones:
-        - moc-infra.massopen.cloud
+        - octo-emerging.redhataicoe.com

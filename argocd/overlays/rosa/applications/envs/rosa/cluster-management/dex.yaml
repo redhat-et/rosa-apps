@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dex
+spec:
+  destination:
+    name: in-cluster
+    namespace: dex
+  project: cluster-management
+  source:
+    path: dex/overlays/rosa
+    repoURL: https://github.com/gregory-pereira/rosa-apps.git
+    targetRevision: migrate-op1st-argocd-to-rosa
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
+  #   syncOptions:
+  #     - Validate=false

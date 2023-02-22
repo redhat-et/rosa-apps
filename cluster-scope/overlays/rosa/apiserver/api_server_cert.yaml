@@ -1,0 +1,17 @@
+apiVersion: config.openshift.io/v1
+kind: APIServer
+metadata:
+  name: cluster
+spec:
+  audit:
+    profile: WriteRequestBodies
+  servingCerts:
+    namedCertificates:
+      - names:
+          - api.open-svc-sts.k1wl.p1.openshiftapps.com
+        servingCertificate:
+          name: open-svc-sts-primary-cert-bundle-secret
+      - names:
+          - rh-api.open-svc-sts.k1wl.p1.openshiftapps.com
+        servingCertificate:
+          name: open-svc-sts-primary-cert-bundle-secret

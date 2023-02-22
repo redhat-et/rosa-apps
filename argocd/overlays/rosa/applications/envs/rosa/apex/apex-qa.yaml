@@ -11,8 +11,8 @@ spec:
     repoURL: "https://github.com/redhat-et/apex"
     targetRevision: HEAD
   project: apex
-  syncPolicy:
-    syncOptions:
-      - Replace=true
-    automated:
-      prune: true
+  # syncPolicy:
+  #   syncOptions:
+  #     - Replace=true
+  #   automated:
+  #     prune: true

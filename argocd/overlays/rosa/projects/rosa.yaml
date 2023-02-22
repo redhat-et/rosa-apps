@@ -3,7 +3,7 @@ kind: AppProject
 metadata:
   name: rosa
   labels:
-    project-template: global-project
+    project-template: global
 spec:
   destinations:
     - namespace: '*'
@@ -30,8 +30,10 @@ spec:
   namespaceResourceWhitelist:
     - group: argoproj.io
       kind: Application
-    # - group: argoproj.io
-    #   kind: AppProject
+    - group: apps
+      kind: Deployment
+    - group: ""
+      kind: ServiceAccount
     - group: logging.openshift.io
       kind: ClusterLogging
     - group: core.observatorium.io
