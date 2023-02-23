@@ -6,4 +6,4 @@ resources:
 namespace: openshift-gitops
 components:
 - ../../../../components/limitranges/default
-- ../../../../components/resourcequotas/large # may not need
+- ../../../../components/resourcequotas/large

@@ -23,4 +23,3 @@ spec:
       name: apex-auth-cert
       namespace: apex
     type: kubernetes.io/tls
-

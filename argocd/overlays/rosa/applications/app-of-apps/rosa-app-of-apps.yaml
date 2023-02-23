@@ -15,4 +15,3 @@ spec:
     syncOptions:
     - Validate=false
     - ApplyOutOfSyncOnly=true
-

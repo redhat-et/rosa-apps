@@ -16,24 +16,24 @@ oauth2:
   skipApprovalScreen: true
 
 staticClients:
-  # - id: argo
-  #   name: Argo
-  #   redirectURIs:
-  #     - http://URL/oauth2/callback
-  #   secretEnv: ARGO_SECRET
+#   - id: argo
+#     name: Argo
+#     redirectURIs:
+#       - http://URL/oauth2/callback
+#     secretEnv: ARGO_SECRET
 
-  # - id: grafana
-  #   name: Grafana
-  #   redirectURIs:
-  #     - https://URL/login/generic_oauth
-  #   secretEnv: GRAFANA_SECRET
+#   - id: grafana
+#     name: Grafana
+#     redirectURIs:
+#       - https://URL/login/generic_oauth
+#     secretEnv: GRAFANA_SECRET
 
-  # - id: hue
-  #   name: Hue
-  #   redirectURIs:
-  #     - https://URL/oidc/callback
-  #     - https://URL/hue/oidc_failed
-  #   secretEnv: HUE_SECRET
+#   - id: hue
+#     name: Hue
+#     redirectURIs:
+#       - https://URL/oidc/callback
+#       - https://URL/hue/oidc_failed
+#     secretEnv: HUE_SECRET
 
 connectors:
   - type: openshift

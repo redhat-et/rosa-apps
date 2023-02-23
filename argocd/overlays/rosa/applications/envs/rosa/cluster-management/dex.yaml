@@ -12,9 +12,9 @@ spec:
     path: dex/overlays/rosa
     repoURL: https://github.com/gregory-pereira/rosa-apps.git
     targetRevision: migrate-op1st-argocd-to-rosa
-  # syncPolicy:
-  #   automated:
-  #     prune: true
-  #     selfHeal: true
-  #   syncOptions:
-  #     - Validate=false
+#  syncPolicy:
+#    automated:
+#      prune: true
+#      selfHeal: true
+#    syncOptions:
+#      - Validate=false

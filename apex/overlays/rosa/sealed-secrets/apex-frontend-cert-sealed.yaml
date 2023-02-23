@@ -23,4 +23,3 @@ spec:
       name: apex-frontend-cert
       namespace: apex
     type: kubernetes.io/tls
-
