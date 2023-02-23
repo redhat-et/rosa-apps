@@ -8,8 +8,8 @@ spec:
     namespace: apex
   source:
     path: deploy/apex/overlays/prod
-    repoURL: 'https://github.com/redhat-et/apex'
-    targetRevision: HEAD
+    repoURL: 'https://github.com/gregory-pereira/apex'
+    targetRevision: update-apex-auth-cert-certificate
   project: apex
   # syncPolicy:
   #   automated:
