@@ -11,7 +11,7 @@ spec:
   source:
     path: acme-operator/overlays/rosa
     repoURL: https://github.com/gregory-pereira/rosa-apps.git
-    targetRevision: migrate-op1st-argocd-to-rosa
+    targetRevision: main
   # syncPolicy:
   #   automated:
   #     prune: true

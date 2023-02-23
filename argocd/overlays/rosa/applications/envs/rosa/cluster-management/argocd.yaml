@@ -10,7 +10,7 @@ spec:
   source:
     path: argocd/overlays/rosa
     repoURL: https://github.com/gregory-pereira/rosa-apps.git
-    targetRevision: migrate-op1st-argocd-to-rosa
+    targetRevision: main
   syncPolicy:
     syncOptions:
       - Validate=false

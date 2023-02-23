@@ -28,6 +28,8 @@ spec:
       groups:
         - rosa
   namespaceResourceWhitelist:
+    - group: ""
+      kind: ConfigMap
     - group: argoproj.io
       kind: Application
     - group: apps
