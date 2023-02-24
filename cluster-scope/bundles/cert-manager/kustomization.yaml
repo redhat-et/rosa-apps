@@ -1,0 +1,7 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base/apiextensions.k8s.io/customresourcedefinitions/cert-manager.io
+- ../../base/operators.coreos.com/subscriptions/cert-manager
+- ../../base/rbac.authorization.k8s.io/clusterrolebindings/scc-restricted-seccomp
+- ../../base/security.openshift.io/securitycontextconstraints/restricted-seccomp

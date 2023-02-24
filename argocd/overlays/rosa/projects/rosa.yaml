@@ -1,0 +1,86 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: rosa
+  labels:
+    project-template: global
+spec:
+  destinations:
+    - namespace: '*'
+      server: '*'
+    - namespace: openshift-gitops
+      server: in-cluster
+  sourceRepos:
+    - '*'
+    - 'https://github.com/redhat-et/*'
+    - 'https://github.com/gregory-pereira/rosa-apps.git'
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:rosa:project-admin, applications, get, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, create, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, update, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, delete, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, sync, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, override, rosa/*, allow
+        - p, proj:rosa:project-admin, applications, action/*, rosa/*, allow
+      groups:
+        - rosa
+  namespaceResourceWhitelist:
+    - group: argoproj.io
+      kind: Application
+    - group: apps
+      kind: Deployment
+    - group: ""
+      kind: ServiceAccount
+    - group: logging.openshift.io
+      kind: ClusterLogging
+    - group: core.observatorium.io
+      kind: Observatorium
+    - group: external-secrets.io
+      kind: ExternalSecret
+    - group: integreatly.org
+      kind: GrafanaDashboard
+    - group: integreatly.org
+      kind: GrafanaDataSource
+    - group: integreatly.org
+      kind: Grafana
+    - group: kafka.strimzi.io
+      kind: Kafka
+    - group: kafka.strimzi.io
+      kind: KafkaBridge
+    - group: kafka.strimzi.io
+      kind: KafkaConnect
+    - group: kafka.strimzi.io
+      kind: KafkaConnectS2I
+    - group: kafka.strimzi.io
+      kind: KafkaConnector
+    - group: kafka.strimzi.io
+      kind: KafkaMirrorMaker
+    - group: kafka.strimzi.io
+      kind: KafkaMirrorMaker2
+    - group: kafka.strimzi.io
+      kind: KafkaRebalance
+    - group: kafka.strimzi.io
+      kind: KafkaTopic
+    - group: kafka.strimzi.io
+      kind: KafkaUser
+    - group: kfdef.apps.kubeflow.org
+      kind: KfDef
+    - group: monitoring.coreos.com
+      kind: Alertmanager
+    - group: monitoring.coreos.com
+      kind: PodMonitor
+    - group: monitoring.coreos.com
+      kind: Prometheus
+    - group: monitoring.coreos.com
+      kind: PrometheusRule
+    - group: monitoring.coreos.com
+      kind: ServiceMonitor
+    - group: monitoring.coreos.com
+      kind: ThanosRuler
+    - group: logging.openshift.io
+      kind: ClusterLogForwarder
+    - group: postgres-operator.crunchydata.com
+      kind: PostgresCluster

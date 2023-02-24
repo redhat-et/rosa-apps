@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    openshift.io/display-name: "Dex"
+    openshift.io/requester: rosa
+    op1st/project-owner: rosa
+    op1st/docs: "https://github.com/dexidp/dex"
+  name: dex
+spec: {}
