@@ -1,4 +1,4 @@
-issuer: https://dex-dex.apps.smaug.na.operate-first.cloud
+issuer: https://dex-dex.apps.open-svc-sts.k1wl.p1.openshiftapps.com
 
 storage:
   type: memory
@@ -19,8 +19,8 @@ oauth2:
 #   - id: grafana
 #     name: Grafana
 #     redirectURIs:
-#       - https://grafana.operate-first.cloud/login/generic_oauth
-#       - http://grafana.operate-first.cloud/login/generic_oauth
+#       - https://grafana.open-svc-sts.k1wl.p1.openshiftapps.com/login/generic_oauth
+#       - http://grafana.open-svc-sts.k1wl.p1.openshiftapps.com/login/generic_oauth
 #     secretEnv: GRAFANA_SECRET
 
 connectors:
@@ -31,6 +31,6 @@ connectors:
       issuer: https://kubernetes.default.svc
       clientID: system:serviceaccount:dex:dex
       clientSecret: $OPENSHIFT_CLIENT_SECRET
-      redirectURI: https://dex-dex.apps.smaug.na.operate-first.cloud/callback
+      redirectURI: https://dex-dex.apps.open-svc-sts.k1wl.p1.openshiftapps.com/callback
       groups:
         - system:authenticated

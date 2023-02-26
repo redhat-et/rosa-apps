@@ -4,5 +4,5 @@ namespace: dex
 resources:
   - ../../base
   - configmaps
-# patchesStrategicMerge:
-#   - externalsecrets/dex-clients_patch.yaml
+  # Sealed secrets is currently removed because we have no dex clients at the moment.
+  # - sealed-secrets/dex-clients-sealed.yaml
