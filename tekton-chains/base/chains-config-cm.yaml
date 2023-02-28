@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/part-of: tekton-chains
+  name: chains-config
+  namespace: tekton-chains
+data:
+  artifacts.oci.storage: oci
+  artifacts.pipelinerun.format: slsa/v1
+  artifacts.pipelinerun.signer: x509
+  artifacts.pipelinerun.storage: tekton,oci
+  artifacts.taskrun.format: in-toto
+  artifacts.taskrun.storage: oci
+  signers.x509.fulcio.address: https://fulcio.apps.open-svc-sts.k1wl.p1.openshiftapps.com
+  signers.x509.fulcio.enabled: "true"
+  signers.x509.fulcio.issuer: https://rh-oidc.s3.us-east-1.amazonaws.com/21o4ml1f5kchd6ee9nmh5dhc6efqba38
+  signers.x509.identity.token.file: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+  signers.x509.tuf.mirror.url: https://tuf.apps.open-svc-sts.k1wl.p1.openshiftapps.com
+  storage.oci.repository.insecure: "true"
+  transparency.enabled: "true"
+  transparency.url: https://rekor.apps.open-svc-sts.k1wl.p1.openshiftapps.com
