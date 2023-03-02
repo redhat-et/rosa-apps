@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: nexodus
+  labels:
+    project-template: global
+spec:
+  destinations:
+    - namespace: nexodus
+      server: "*"
+    - namespace: nexodus-*
+      server: "*"
+  sourceRepos:
+    - "*"
+  roles:
+    - name: project-admin
+      description: Read/Write access to this project only
+      policies:
+        - p, proj:nexodus:project-admin, applications, get, nexodus/*, allow
+        - p, proj:nexodus:project-admin, applications, create, nexodus/*, allow
+        - p, proj:nexodus:project-admin, applications, update, nexodus/*, allow
+        - p, proj:nexodus:project-admin, applications, delete, nexodus/*, allow
+        - p, proj:nexodus:project-admin, applications, sync, nexodus/*, allow
+        - p, proj:nexodus:project-admin, applications, override, nexodus/*, allow
+        - p, proj:nexodus:project-admin, applications, action/*, nexodus/*, allow
+      groups:
+        - nexodus
+        - rosa

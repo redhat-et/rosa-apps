@@ -2,7 +2,9 @@
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
-  name: apex
+  name: nexodus
 spec:
   targetNamespaces:
-    - apex
+    - nexodus
+    - nexodus-qa
+    - nexodus-monitoring
