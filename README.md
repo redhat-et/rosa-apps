@@ -57,3 +57,39 @@ cat <k8s_secret>.yaml | kubeseal \
 Congratulations! You now have a properly generated sealed-secret that can be safely stored in `git`.
 
 If encrypting your sealed-secret failed, you can take a look at the logs for the `sealed-secrets-controller` Pod available in the [kube-system namespace](https://console-openshift-console.apps.open-svc-sts.k1wl.p1.openshiftapps.com/k8s/ns/kube-system/core~v1~Pod), or contact an admin to do so if you lack the permissions.
+
+
+## Certificate Generation
+For the wildcard certificate we utilize certbot which will generate a cert via lets encrypt.
+
+```
+sudo dnf -y install certbot
+```
+
+Using the apps wildcard address run the following.
+
+```
+sudo certbot -d '*.apps.templates.octo-emerging.redhataicoe.com' --manual --preferred-challenges dns certonly
+```
+
+The above command will prompt you to make a TXT entry in the PUBLIC dns zone. Once completed files will be placed in `/etc/letsencrypt/live/${DOMAIN}`. The next step is to generate a secret based off of the generated files.
+
+From the `/etc/letsencrypt/live/${DOMAIN}` directory run the following.
+
+```
+oc create secret tls router-certs --cert=fullchain.pem --key=privkey.pem -n openshift-ingress -o yaml --dry-run > /tmp/cert.yaml
+```
+
+This certifcate should be sealed using the steps above but in the event the cluster is not managed through a GitOps framework run the following.
+
+```
+oc create -f /tmp/cert.yaml
+```
+
+The last step is to patch the ingress controller.
+
+```
+oc patch ingresscontroller default -n openshift-ingress-operator --type=merge --patch='{"spec": { "defaultCertificate": { "name": "router-certs" }}}'
+```
+
+This will cause the pods in the openshift-ingress namespace to restart. Once the pods have restarted browse to a webpage that is https and uses the ${DOMAIN} to validate the site is secure using a certificate from lets encrypt.
