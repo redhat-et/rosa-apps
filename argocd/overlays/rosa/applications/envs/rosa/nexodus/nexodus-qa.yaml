@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nexodus-qa
+spec:
+  destination:
+    name: in-cluster
+    namespace: nexodus-qa
+  source:
+    path: deploy/nexodus/overlays/qa
+    repoURL: "https://github.com/nexodus-io/nexodus"
+    targetRevision: HEAD
+  project: nexodus
+  syncPolicy:
+    syncOptions:
+      - Replace=true
+    automated:
+      prune: true

@@ -16,16 +16,16 @@ resources:
   # --------------------------------------------------------------------------------------
   # Namespaces
   # --------------------------------------------------------------------------------------
-  - ../../base/core/namespaces/apex
-  - ../../base/core/namespaces/apex-monitoring
-  - ../../base/core/namespaces/apex-qa
+  - ../../base/core/namespaces/nexodus
+  - ../../base/core/namespaces/nexodus-monitoring
+  - ../../base/core/namespaces/nexodus-qa
   - ../../base/core/namespaces/copilot-ops
   - ../../base/core/namespaces/dex
   - ../../base/core/namespaces/ipfs
   # --------------------------------------------------------------------------------------
   # Operatorgroups and subscriptions
   # --------------------------------------------------------------------------------------
-  - ../../base/operators.coreos.com/operatorgroups/apex
+  - ../../base/operators.coreos.com/operatorgroups/nexodus
   - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
   # --------------------------------------------------------------------------------------
   # Premade bundles (some may include CRDs)
