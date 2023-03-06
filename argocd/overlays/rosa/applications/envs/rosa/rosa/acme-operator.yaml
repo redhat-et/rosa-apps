@@ -10,7 +10,7 @@ spec:
   project: rosa
   source:
     path: acme-operator/overlays/rosa
-    repoURL: https://github.com/gregory-pereira/rosa-apps.git
+    repoURL: https://github.com/redhat-et/rosa-apps.git
     targetRevision: main
   # syncPolicy:
   #   automated:
