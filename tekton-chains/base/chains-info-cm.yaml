@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chains-info
+  namespace: tekton-chains
+  labels:
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/part-of: tekton-chains
+data:
+  # Contains chains version which can be queried by external
+  # tools such as CLI. Elevated permissions are given to
+  # this ConfigMap such that even if we don't have access to
+  # other resources in the namespace, we can still access
+  # this ConfigMap.
+  version: "v0.14.0"

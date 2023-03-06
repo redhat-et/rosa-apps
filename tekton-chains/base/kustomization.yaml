@@ -1,0 +1,9 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - chains-config-cm.yaml
+  - chains-info-cm.yml
+  - chains-logging-cm.yml
+  - chains-scc.yaml
+  - signing-secret-sealed.yaml
