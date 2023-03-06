@@ -8,7 +8,7 @@ spec:
     namespace: openshift-ingress
   project: cluster-management
   source:
-    repoURL: https://github.com/gregory-pereira/rosa-apps.git
+    repoURL: https://github.com/redhat-et/rosa-apps.git
     path: cert-manager/overlays/rosa
     targetRevision: main
 #   syncPolicy:
