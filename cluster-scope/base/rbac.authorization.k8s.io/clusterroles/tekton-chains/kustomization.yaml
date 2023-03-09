@@ -2,3 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - chains-cluster-role.yaml
+- chain-tenant-access-cluster-role.yaml
