@@ -23,6 +23,15 @@ resources:
   - ../../base/core/namespaces/dex
   - ../../base/core/namespaces/ipfs
   # --------------------------------------------------------------------------------------
+  # Groups
+  # --------------------------------------------------------------------------------------
+  - ../../base/user.openshift.io/groups/ai4cloudops
+  - ../../base/user.openshift.io/groups/copilot-ops
+  - ../../base/user.openshift.io/groups/nexodus
+  - ../../base/user.openshift.io/groups/rosa
+  - ../../base/user.openshift.io/groups/thoth
+  - ../../base/user.openshift.io/groups/thoth-devops
+  # --------------------------------------------------------------------------------------
   # Operatorgroups and subscriptions
   # --------------------------------------------------------------------------------------
   - ../../base/operators.coreos.com/operatorgroups/nexodus
