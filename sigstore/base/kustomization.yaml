@@ -2,12 +2,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 helmCharts:
-- name: scaffolding
+- name: scaffold
   releaseName: sigstore/scaffold
   valuesFile: values.yaml
-  repo: https://github.com/sigstore/helm-charts/tree/main/charts/scaffold
-  version: 0.5.4
+  repo: https://sigstore.github.io/helm-charts
+  version: 0.5.5
 resources:
-  - fulcio-ns.yaml
-  - sigstore-scc.yaml 
-  - tuf-root-secret-sealed.yaml
+  - ../../cluster-scope/base/core/namespaces/fulcio-system
+  - ../../cluster-scope/base/rbac.authorization.k8s.io/rolebindings/sigstore
