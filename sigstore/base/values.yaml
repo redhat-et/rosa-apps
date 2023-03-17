@@ -1,0 +1,58 @@
+rekor:
+  server:
+    ingress:
+      className: ""
+      annotations:
+        route.openshift.io/termination: "edge"
+      hosts:
+        - host: rekor.apps.open-svc-sts.k1wl.p1.openshiftapps.com
+          path: /
+
+
+fulcio:
+  namespace:
+    name: fulcio-system
+    create: false
+  createcerts:
+    enabled: false
+  server:
+    secret: fulcio-secret-rh
+    ingress:
+      http:
+        annotations:
+          route.openshift.io/termination: "edge"
+        className: ""
+        hosts:
+          - host: fulcio.apps.open-svc-sts.k1wl.p1.openshiftapps.com
+            path: /
+  config:
+    contents:
+      OIDCIssuers:
+        ? https://rh-oidc.s3.us-east-1.amazonaws.com/21o4ml1f5kchd6ee9nmh5dhc6efqba38
+        : IssuerURL: https://rh-oidc.s3.us-east-1.amazonaws.com/21o4ml1f5kchd6ee9nmh5dhc6efqba38
+          ClientID: sigstore
+          Type: kubernetes
+
+tuf:
+  secrets:
+    fulcio:
+      name: fulcio-secret-rh
+  enabled: true
+  ingress:
+    className: ""
+    annotations:
+      route.openshift.io/termination: "edge"
+    http:
+      hosts:
+        - host: tuf.apps.open-svc-sts.k1wl.p1.openshiftapps.com
+          path: /
+
+ctlog:
+  enabled: true
+  createctconfig:
+    logPrefix: sigstorescaffolding
+    backoffLimit: 30
+
+copySecretJob:
+  enabled: true
+  backoffLimit: 1000
