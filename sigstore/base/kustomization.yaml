@@ -9,4 +9,8 @@ helmCharts:
   version: 0.5.5
 resources:
   - ../../cluster-scope/base/core/namespaces/fulcio-system
+  - ../../cluster-scope/base/core/namespaces/rekor-system
+  - ../../cluster-scope/base/core/namespaces/tuf-system
+  - ../../cluster-scope/base/core/namespaces/trillian-system
+  - ../../cluster-scope/base/core/namespaces/ctlog-system
   - ../../cluster-scope/base/rbac.authorization.k8s.io/rolebindings/sigstore

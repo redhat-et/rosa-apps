@@ -1,4 +1,13 @@
+trillian:
+  enabled: true
+  namespace:
+    name: trillian-system
+    create: false
+
 rekor:
+  namespace:
+    name: rekor-system
+    create: false
   server:
     ingress:
       className: ""
@@ -34,6 +43,9 @@ fulcio:
           Type: kubernetes
 
 tuf:
+  namespace:
+    name: tuf-system
+    create: false
   secrets:
     fulcio:
       name: fulcio-secret-rh
@@ -48,6 +60,9 @@ tuf:
           path: /
 
 ctlog:
+  namespace:
+    name: ctlog-system
+    create: false
   enabled: true
   createctconfig:
     logPrefix: sigstorescaffolding
