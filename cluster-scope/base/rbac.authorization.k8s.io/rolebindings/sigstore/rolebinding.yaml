@@ -33,7 +33,7 @@ subjects:
   name: ctlog-createtree
   namespace: ctlog-system
 - kind: ServiceAccount
-  name: scaffolding-ctlog-createconfig
+  name: scaffolding-ctlog-createctconfig
   namespace: ctlog-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -50,7 +50,7 @@ subjects:
   name: tuf
   namespace: tuf-system
 - kind: ServiceAccount
-  name: tuf-secret-copy
+  name: tuf-secret-copy-job
   namespace: tuf-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
