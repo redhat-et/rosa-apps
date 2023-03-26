@@ -1,0 +1,18 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: observability-operator
+spec:
+  channel: stable
+  config:
+    resources:
+      limits:
+        cpu: 200m
+        memory: 1536Mi
+      requests:
+        cpu: 100m
+        memory: 512Mi
+  name: observability-operator
+  source: observability-operator-catalog
+  sourceNamespace: openshift-observability-operator
