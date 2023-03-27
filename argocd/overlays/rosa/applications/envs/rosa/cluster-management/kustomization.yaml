@@ -7,3 +7,4 @@ resources:
   - cert-manager.yaml
   - dex.yaml
   - sealed-secrets.yaml
+  - external-secrets.yaml
