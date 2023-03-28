@@ -55,7 +55,6 @@ resources:
   # --------------------------------------------------------------------------------------
   - ../../bundles/acme-operator
   - ../../bundles/cert-manager
-  - ../../bundles/jaeger-operator
   - ../../bundles/opentelemetry-collector-operator
   - ../../bundles/tekton-chains
   - ../../bundles/external-secrets-operator
