@@ -22,6 +22,10 @@ resources:
   - ../../base/core/namespaces/copilot-ops
   - ../../base/core/namespaces/dex
   - ../../base/core/namespaces/ipfs
+  - ../../base/core/namespaces/loki-operator
+  - ../../base/core/namespaces/minio-operator
+  - ../../base/core/namespaces/observability-operator
+  - ../../base/core/namespaces/tempo-operator
   # --------------------------------------------------------------------------------------
   # Groups
   # --------------------------------------------------------------------------------------
@@ -32,10 +36,16 @@ resources:
   - ../../base/user.openshift.io/groups/thoth
   - ../../base/user.openshift.io/groups/thoth-devops
   # --------------------------------------------------------------------------------------
-  # Operatorgroups and subscriptions
+  # Operatorgroups, Catalougsources, and Subscriptions
   # --------------------------------------------------------------------------------------
+  - ../../base/operators.coreos.com/catalogsources/observability-operator
+  - ../../base/operators.coreos.com/catalogsources/tempo-operator
   - ../../base/operators.coreos.com/operatorgroups/nexodus
   - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
+  - ../../base/operators.coreos.com/subscriptions/loki-operator
+  - ../../base/operators.coreos.com/subscriptions/minio-operator
+  - ../../base/operators.coreos.com/subscriptions/observability-operator
+  - ../../base/operators.coreos.com/subscriptions/tempo-operator
   # --------------------------------------------------------------------------------------
   # Premade bundles (some may include CRDs)
   # --------------------------------------------------------------------------------------
