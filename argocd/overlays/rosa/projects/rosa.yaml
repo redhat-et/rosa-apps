@@ -28,61 +28,117 @@ spec:
       groups:
         - rosa
   namespaceResourceWhitelist:
-    - group: ""
-      kind: ConfigMap
-    - group: argoproj.io
-      kind: Application
+    - group: ''
+      kind: binding
+    - group: ''
+      kind: configmap
+    - group: ''
+      kind: endpoints
+    - group: ''
+      kind: event
+    - group: ''
+      kind: limitrange
+    - group: ''
+      kind: persistentvolumeclaim
+    - group: ''
+      kind: pod
+    - group: ''
+      kind: replicationcontroller
+    - group: ''
+      kind: resourcequota
+    - group: ''
+      kind: secret
+    - group: ''
+      kind: service
+    - group: ''
+      kind: serviceaccount
     - group: apps
-      kind: Deployment
-    - group: ""
-      kind: ServiceAccount
-    - group: logging.openshift.io
-      kind: ClusterLogging
+      kind: controllerrevision
+    - group: apps
+      kind: daemonset
+    - group: apps
+      kind: deployment
+    - group: apps
+      kind: replicaset
+    - group: apps
+      kind: statefulset
+    - group: apps.openshift.io
+      kind: deploymentconfig
+    - group: argoproj.io
+      kind: application
+    - group: argoproj.io
+      kind: cronworkflow
+    - group: argoproj.io
+      kind: workflow
+    - group: argoproj.io
+      kind: workflowtemplate
+    - group: authorization.openshift.io
+      kind: role
+    - group: authorization.openshift.io
+      kind: rolebinding
+    - group: authorization.openshift.io
+      kind: rolebindingrestriction
+    - group: autoscaling
+      kind: horizontalpodautoscaler
+    - group: batch
+      kind: cronjob
+    - group: batch
+      kind: job
+    - group: build.openshift.io
+      kind: build
+    - group: build.openshift.io
+      kind: buildconfig
     - group: core.observatorium.io
-      kind: Observatorium
+      kind: observatorium
     - group: external-secrets.io
-      kind: ExternalSecret
+      kind: externalsecret
     - group: integreatly.org
-      kind: GrafanaDashboard
+      kind: grafana
     - group: integreatly.org
-      kind: GrafanaDataSource
+      kind: grafanadashboard
     - group: integreatly.org
-      kind: Grafana
+      kind: grafanadatasource
     - group: kafka.strimzi.io
-      kind: Kafka
+      kind: kafka
     - group: kafka.strimzi.io
-      kind: KafkaBridge
+      kind: kafkabridge
     - group: kafka.strimzi.io
-      kind: KafkaConnect
+      kind: kafkaconnect
     - group: kafka.strimzi.io
-      kind: KafkaConnectS2I
+      kind: kafkaconnector
     - group: kafka.strimzi.io
-      kind: KafkaConnector
+      kind: kafkaconnects2i
     - group: kafka.strimzi.io
-      kind: KafkaMirrorMaker
+      kind: kafkamirrormaker
     - group: kafka.strimzi.io
-      kind: KafkaMirrorMaker2
+      kind: kafkamirrormaker2
     - group: kafka.strimzi.io
-      kind: KafkaRebalance
+      kind: kafkarebalance
     - group: kafka.strimzi.io
-      kind: KafkaTopic
+      kind: kafkatopic
     - group: kafka.strimzi.io
-      kind: KafkaUser
+      kind: kafkauser
     - group: kfdef.apps.kubeflow.org
-      kind: KfDef
-    - group: monitoring.coreos.com
-      kind: Alertmanager
-    - group: monitoring.coreos.com
-      kind: PodMonitor
-    - group: monitoring.coreos.com
-      kind: Prometheus
-    - group: monitoring.coreos.com
-      kind: PrometheusRule
-    - group: monitoring.coreos.com
-      kind: ServiceMonitor
-    - group: monitoring.coreos.com
-      kind: ThanosRuler
+      kind: kfdef
     - group: logging.openshift.io
-      kind: ClusterLogForwarder
+      kind: clusterlogforwarder
+    - group: logging.openshift.io
+      kind: clusterlogging
+    - group: monitoring.coreos.com
+      kind: alertmanager
+    - group: monitoring.coreos.com
+      kind: podmonitor
+    - group: monitoring.coreos.com
+      kind: prometheus
+    - group: monitoring.coreos.com
+      kind: prometheusrule
+    - group: monitoring.coreos.com
+      kind: servicemonitor
+    - group: monitoring.coreos.com
+      kind: thanosruler
+    - group: policy
+      kind: poddisruptionbudget
     - group: postgres-operator.crunchydata.com
-      kind: PostgresCluster
+      kind: postgrescluster
+    - group: route.openshift.io
+      kind: route
