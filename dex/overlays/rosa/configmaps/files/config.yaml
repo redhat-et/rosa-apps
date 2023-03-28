@@ -15,13 +15,13 @@ telemetry:
 oauth2:
   skipApprovalScreen: true
 
-# staticClients:
-#   - id: grafana
-#     name: Grafana
-#     redirectURIs:
-#       - https://grafana.open-svc-sts.k1wl.p1.openshiftapps.com/login/generic_oauth
-#       - http://grafana.open-svc-sts.k1wl.p1.openshiftapps.com/login/generic_oauth
-#     secretEnv: GRAFANA_SECRET
+staticClients:
+  - id: vault
+    name: Vault
+    redirectURIs:
+      - https://rosa-vault-ui-vault.apps.open-svc-sts.k1wl.p1.openshiftapps.com/ui/vault/auth/oidc/oidc/callback
+      - https://rosa-vault-ui-vault.apps.open-svc-sts.k1wl.p1.openshiftapps.com:8250/oidc/callback
+    secretEnv: VAULT_STAGING_SECRET
 
 connectors:
   - type: openshift
