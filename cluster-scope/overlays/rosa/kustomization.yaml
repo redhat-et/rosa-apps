@@ -41,6 +41,10 @@ resources:
   - ../../base/operators.coreos.com/catalogsources/observability-operator
   - ../../base/operators.coreos.com/catalogsources/tempo-operator
   - ../../base/operators.coreos.com/operatorgroups/nexodus
+  - ../../base/operators.coreos.com/operatorgroups/loki-operator
+  - ../../base/operators.coreos.com/operatorgroups/minio-operator
+  - ../../base/operators.coreos.com/operatorgroups/observability-operator
+  - ../../base/operators.coreos.com/operatorgroups/tempo-operator
   - ../../base/operators.coreos.com/subscriptions/crunchy-postgres
   - ../../base/operators.coreos.com/subscriptions/loki-operator
   - ../../base/operators.coreos.com/subscriptions/minio-operator
