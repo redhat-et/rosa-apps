@@ -45,9 +45,9 @@ spec:
             limits:
               cpu: 500m
               memory: 512Mi
-          # envFrom:
-          #   - secretRef:
-          #       name: dex-clients
+          envFrom:
+            - secretRef:
+                name: dex-clients
           env:
             - name: OPENSHIFT_CLIENT_SECRET
               valueFrom:
