@@ -1,0 +1,10 @@
+---
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: tempo-operator-catalog
+spec:
+  displayName: Tempo Operator Catalog
+  image: ghcr.io/andreasgerstmayr/tempo-operator/tempo-operator-catalog:v0.0.8
+  publisher: Tempo Operator Authors
+  sourceType: grpc
