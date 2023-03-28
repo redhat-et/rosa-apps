@@ -4,3 +4,4 @@ resources:
   - acme-operator.yaml
   # - dex.yaml
   # - tekton-chains.yaml
+  - vault.yaml

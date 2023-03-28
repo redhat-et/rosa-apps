@@ -1,0 +1,16 @@
+apiVersion: external-secrets.io/v1beta1
+kind: SecretStore
+metadata:
+  name: vault-store
+spec:
+  provider:
+    vault:
+      auth:
+        kubernetes:
+          mountPath: rosa-k8s
+          role: rosa-ops
+          serviceAccountRef:
+            name: vault-secret-fetcher
+      path: k8s_secrets
+      server: 'https://vault-ui-vault.apps.open-svc-sts.k1wl.p1.openshiftapps.com'
+      version: v2

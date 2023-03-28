@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - rosa-vault/service.yaml
+  - rosa-vault-active/service.yaml
+  - rosa-vault-internal/service.yaml
+  - rosa-vault-standby/service.yaml
+  - rosa-vault-ui/service.yaml

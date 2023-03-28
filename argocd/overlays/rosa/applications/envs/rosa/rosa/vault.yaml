@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+spec:
+  project: rosa
+  source:
+    repoURL: https://github.com/redhat-et/rosa-apps.git
+    targetRevision: HEAD
+    path: vault/overlays/rosa
+  destination:
+    name: in-cluster
+    namespace: vault
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
