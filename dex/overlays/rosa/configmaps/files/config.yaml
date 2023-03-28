@@ -15,7 +15,13 @@ telemetry:
 oauth2:
   skipApprovalScreen: true
 
-# staticClients:
+staticClients:
+  - id: vault
+    name: Vault
+    redirectURIs:
+      - https://rosa-vault-ui-vault.apps.open-svc-sts.k1wl.p1.openshiftapps.com/ui/vault/auth/oidc/oidc/callback
+      - https://rosa-vault-ui-vault.apps.open-svc-sts.k1wl.p1.openshiftapps.com:8250/oidc/callback
+    secretEnv: VAULT_STAGING_SECRET
 #   - id: grafana
 #     name: Grafana
 #     redirectURIs:
