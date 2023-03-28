@@ -3,6 +3,4 @@ apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
   name: tempo-operator
-spec:
-  targetNamespaces:
-    - tempo-operator
+spec: {}
