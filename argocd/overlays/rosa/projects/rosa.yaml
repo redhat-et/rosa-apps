@@ -65,6 +65,8 @@ spec:
     - group: apps.openshift.io
       kind: deploymentconfig
     - group: argoproj.io
+      kind: Application
+    - group: argoproj.io
       kind: application
     - group: argoproj.io
       kind: cronworkflow
