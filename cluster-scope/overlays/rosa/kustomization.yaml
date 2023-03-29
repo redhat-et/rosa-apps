@@ -57,6 +57,7 @@ resources:
   - ../../bundles/cert-manager
   - ../../bundles/tekton-chains
   - ../../bundles/external-secrets-operator
+  - ../../bundles/opentelemetry-collector-operator
   - ../../bundles/vault
   # --------------------------------------------------------------------------------------
   # Cluster Specific Cluster-scoped resources
