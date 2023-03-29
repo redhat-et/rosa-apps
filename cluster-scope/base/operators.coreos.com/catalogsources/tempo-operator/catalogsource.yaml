@@ -5,6 +5,6 @@ metadata:
   name: tempo-operator-catalog
 spec:
   displayName: Tempo Operator Catalog
-  image: ghcr.io/andreasgerstmayr/tempo-operator/tempo-operator-catalog:v0.0.8
+  image: ghcr.io/frzifus/tempo-operator:openshift-6d2b16d
   publisher: Tempo Operator Authors
   sourceType: grpc
