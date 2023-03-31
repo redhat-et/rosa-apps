@@ -1,7 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: rosa-monitoring
 resources:
-  - ../../base/core/namespaces/rosa-monitoring
+  # - ../../base/core/namespaces/rosa-monitoring
   - ../../base/operators.coreos.com/operatorgroups/rosa-monitoring
   - ../../base/operators.coreos.com/subscriptions/grafana-operator
