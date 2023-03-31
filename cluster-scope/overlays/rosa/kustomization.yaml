@@ -51,6 +51,7 @@ resources:
   - ../../base/operators.coreos.com/subscriptions/observability-operator
   - ../../base/operators.coreos.com/subscriptions/tempo-operator
   - ../../base/operators.coreos.com/subscriptions/opentelemetry-collector-operator
+  - ../../base/operators.coreos.com/subscriptions/grafana-operator
   # --------------------------------------------------------------------------------------
   # Premade bundles (some may include CRDs)
   # --------------------------------------------------------------------------------------
@@ -59,6 +60,7 @@ resources:
   - ../../bundles/tekton-chains
   - ../../bundles/external-secrets-operator
   - ../../bundles/vault
+  - ../../bundles/grafana-operator
   # --------------------------------------------------------------------------------------
   # Cluster Specific Cluster-scoped resources
   # --------------------------------------------------------------------------------------
