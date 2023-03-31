@@ -51,7 +51,6 @@ resources:
   - ../../base/operators.coreos.com/subscriptions/observability-operator
   - ../../base/operators.coreos.com/subscriptions/tempo-operator
   - ../../base/operators.coreos.com/subscriptions/opentelemetry-collector-operator
-  - ../../base/operators.coreos.com/subscriptions/grafana-operator
   # --------------------------------------------------------------------------------------
   # Premade bundles (some may include CRDs)
   # --------------------------------------------------------------------------------------
