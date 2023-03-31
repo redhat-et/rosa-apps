@@ -6,7 +6,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: prometheus-k8s
-    namespace: opf-monitoring
+    namespace: rosa-monitoring
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
