@@ -60,9 +60,13 @@ resources:
   - ../../bundles/external-secrets-operator
   - ../../bundles/vault
   - ../../bundles/grafana-operator
+  - ../../bundles/openshfit-serverless
   # --------------------------------------------------------------------------------------
   # Cluster Specific Cluster-scoped resources
   # --------------------------------------------------------------------------------------
   - apiserver/api_server_cert.yaml
   - clusterversion.yaml
   - ingresscontrollers/default.yaml
+
+patchesStrategicMerge:
+  - subscriptions/serverless-operator_patch.yaml
