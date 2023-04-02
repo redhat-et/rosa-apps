@@ -66,3 +66,4 @@ resources:
   - apiserver/api_server_cert.yaml
   - clusterversion.yaml
   - ingresscontrollers/default.yaml
+  - secret-mgmt

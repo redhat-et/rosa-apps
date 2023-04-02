@@ -5,4 +5,6 @@ resources:
   - ../../base
   - configmaps
   # Sealed secrets is currently removed because we have no dex clients at the moment.
-  - sealed-secrets/dex-clients-sealed.yaml
+  # - sealed-secrets/dex-clients-sealed.yaml
+patchesStrategicMerge:
+  - externalsecrets/dex-clients_patch.yaml

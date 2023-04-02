@@ -3,10 +3,13 @@ kind: Kustomization
 namespace: dex
 resources:
 - deployments
+- externalsecrets
 - routes
 - secrets
 - serviceaccounts
 - services
+# Implement this in overlay
+# - configmaps
 commonLabels:
   app.kubernetes.io/name: dex
   app.kubernetes.io/component: dex-server
