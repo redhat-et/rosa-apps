@@ -4,5 +4,5 @@ resources:
   - ../../base
   # - backup-job
   # - obc.yaml
-  - sealed-secrets
+  # - sealed-secrets
 namespace: vault
