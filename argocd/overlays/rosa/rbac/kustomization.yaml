@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: openshift-gitops
+resources:
+- ../../../../cluster-scope/base/rbac.authorization.k8s.io/clusterrolebindings/argocd-application-controller
+- ../../../../cluster-scope/base/rbac.authorization.k8s.io/clusterrolebindings/argocd-manager
+- ../../../../cluster-scope/base/rbac.authorization.k8s.io/clusterrolebindings/argocd-server
+- ../../../../cluster-scope/base/rbac.authorization.k8s.io/clusterroles/argocd-application-controller
+- ../../../../cluster-scope/base/rbac.authorization.k8s.io/clusterroles/argocd-proj-apps-aggregate-to-admin
+- ../../../../cluster-scope/base/rbac.authorization.k8s.io/clusterroles/argocd-events-create-aggregate-to-admin
+- ../../../../cluster-scope/base/rbac.authorization.k8s.io/clusterroles/argocd-server
