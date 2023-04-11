@@ -1,0 +1,13 @@
+apiVersion: user.openshift.io/v1
+kind: Group
+metadata:
+  name: cluster-admins
+users:
+  - cooktheryan
+  - sallyom
+  - sabre1041
+  - RobotSail
+  - Gregory-Pereira
+  - cluster-admin
+  - lkatalin
+  - frzifus
