@@ -6,4 +6,4 @@ resources:
 namespace: nexodus-qa
 components:
 - ../../../../components/limitranges/default
-- ../../../../components/resourcequotas/xlarge
+- ../../../../components/resourcequotas/x-large
