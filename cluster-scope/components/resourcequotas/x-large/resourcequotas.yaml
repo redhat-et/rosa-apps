@@ -1,0 +1,12 @@
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: x-large
+spec:
+  hard:
+    requests.cpu: '8'
+    requests.memory: 32Gi
+    limits.cpu: '8'
+    limits.memory: 32Gi
+    requests.storage: 80Gi
+    count/objectbucketclaims.objectbucket.io: 1
