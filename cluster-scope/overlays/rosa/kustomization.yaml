@@ -25,6 +25,8 @@ resources:
   - ../../base/core/namespaces/loki-operator
   - ../../base/core/namespaces/minio-operator
   - ../../base/core/namespaces/observability-operator
+  - ../../base/core/namespaces/rhde-validated-pattern
+  - ../../base/core/namespaces/rhde-validated-pattern-staging
   - ../../base/core/namespaces/tempo-operator
   # --------------------------------------------------------------------------------------
   # Groups

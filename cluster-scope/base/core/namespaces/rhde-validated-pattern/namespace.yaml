@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    op1st/project-owner: mangelajo
+    openshift.io/display-name: rhde-validated-pattern
+    openshift.io/requester: mangelajo
+    operator.tekton.dev/prune.resources: "taskrun, pipelinerun"
+    operator.tekton.dev/prune.strategy: keep-since
+    operator.tekton.dev/prune.keep-since: 180
+  name: rhde-validated-pattern
