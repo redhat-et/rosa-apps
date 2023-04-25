@@ -35,6 +35,7 @@ resources:
   - ../../base/user.openshift.io/groups/copilot-ops
   - ../../base/user.openshift.io/groups/nexodus
   - ../../base/user.openshift.io/groups/rosa
+  - ../../base/user.openshift.io/groups/rhde-validated-pattern
   - ../../base/user.openshift.io/groups/thoth
   - ../../base/user.openshift.io/groups/thoth-devops
   # --------------------------------------------------------------------------------------
