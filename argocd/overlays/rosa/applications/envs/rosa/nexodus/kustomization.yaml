@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - nexodus.yaml
   - nexodus-qa.yaml
+  - nexodus-monitoring.yaml
