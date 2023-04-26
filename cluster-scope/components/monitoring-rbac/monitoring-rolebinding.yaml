@@ -9,5 +9,5 @@ subjects:
     namespace: rosa-monitoring
 roleRef:
   apiGroup: rbac.authorization.k8s.io
-  kind: Role
+  kind: ClusterRole
   name: prometheus-monitoring
