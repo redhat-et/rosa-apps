@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sigstore
+spec:
+  destination:
+    name: in-cluster
+    namespace: fulcio-system
+  project: rosa
+  source:
+    path: sigstore/overlays/rosa
+    repoURL: https://github.com/redhat-et/rosa-apps.git
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - Validate=false
