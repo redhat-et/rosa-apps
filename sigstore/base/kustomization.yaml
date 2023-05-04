@@ -3,10 +3,10 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 helmCharts:
 - name: scaffold
-  releaseName: sigstore/scaffold
+  releaseName: scaffold
   valuesFile: values.yaml
   repo: https://sigstore.github.io/helm-charts
-  version: 0.5.5
+  version: 0.6.7
 resources:
   - ../../cluster-scope/base/core/namespaces/fulcio-system
   - ../../cluster-scope/base/core/namespaces/rekor-system
