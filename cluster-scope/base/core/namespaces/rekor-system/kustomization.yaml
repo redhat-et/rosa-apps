@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- namespace.yaml
+namespace: rekor-system
+components:
+- ../../../../components/project-admin-rolebindings/octo-et-platform
+- ../../../../components/limitranges/default
+- ../../../../components/resourcequotas/large
