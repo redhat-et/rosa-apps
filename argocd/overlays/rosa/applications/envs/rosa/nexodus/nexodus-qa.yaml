@@ -9,7 +9,7 @@ spec:
   source:
     path: deploy/nexodus/overlays/qa
     repoURL: "https://github.com/nexodus-io/nexodus"
-    targetRevision: HEAD
+    targetRevision: qa
   project: nexodus
   syncPolicy:
     syncOptions:
