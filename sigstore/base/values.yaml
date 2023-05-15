@@ -41,6 +41,10 @@ fulcio:
         : IssuerURL: https://rh-oidc.s3.us-east-1.amazonaws.com/21o4ml1f5kchd6ee9nmh5dhc6efqba38
           ClientID: sigstore
           Type: kubernetes
+        ? https://keycloak.sigstore-keycloak-test.com/realms/sigstore
+        : IssuerURL: https://keycloak.sigstore-keycloak-test.com/realms/sigstore
+          ClientID: sigstore
+          Type: email
 
 tuf:
   namespace:
