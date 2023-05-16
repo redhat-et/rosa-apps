@@ -2,6 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   # - ../../base/core/namespaces/rosa-monitoring
+  - ../../base/operators.coreos.com/operatorgroups/nexodus-monitoring
   - ../../base/operators.coreos.com/operatorgroups/summitdemo
   # - ../../base/operators.coreos.com/operatorgroups/rosa-monitoring
   - ../../base/operators.coreos.com/subscriptions/grafana-operator
