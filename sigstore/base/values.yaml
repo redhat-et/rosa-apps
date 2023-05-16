@@ -41,8 +41,8 @@ fulcio:
         : IssuerURL: https://rh-oidc.s3.us-east-1.amazonaws.com/21o4ml1f5kchd6ee9nmh5dhc6efqba38
           ClientID: sigstore
           Type: kubernetes
-        ? https://keycloak-keycloak.apps.open-svc-sts.k1wl.p1.openshiftapps.com/realms/sigstore
-        : IssuerURL: https://keycloak-keycloak.apps.open-svc-sts.k1wl.p1.openshiftapps.com/realms/sigstore
+        ? https://keycloak-keycloak.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore
+        : IssuerURL: https://keycloak-keycloak.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore
           ClientID: sigstore
           Type: email
 
