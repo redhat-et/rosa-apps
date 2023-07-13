@@ -1,14 +1,43 @@
 trillian:
   enabled: true
+  createdb:
+    image:
+      registry:  gcr.io
+      repository: trillian-opensource-ci/db_server
+      version: "sha256:22b7fddcb4bafc5692760d84dca5e86294363a94e8f0ecb8f5c39364d436e6d5"
+  initContainerImage:
+    netcat:
+      registry: quay.io
+      repository: rcook/netcat
+      version: v1.0.0
+    curl:
+      registry: registry.access.redhat.com
+      repository: ubi9/ubi-minimal
+      version: latest
+      imagePullPolicy: IfNotPresent
   namespace:
     name: trillian-system
     create: false
+  logserver:
+    image:
+      registry: quay.io
+      repository: rcook/trillian_log_server
+      version: v1.2.2
+  logsigner:
+    image:
+      registry: quay.io
+      repository: rcook/trillian_log_signer
+      version: v1.2.2
 
 rekor:
   namespace:
     name: rekor-system
     create: false
   server:
+    image:
+      registry: quay.io
+      repository: rcook/rekor-server
+      version: v1.2.2-dirty
     ingress:
       className: ""
       annotations:
@@ -16,15 +45,37 @@ rekor:
       hosts:
         - host: rekor.apps.open-svc-sts.k1wl.p1.openshiftapps.com
           path: /
-
+  redis:
+    args:
+      - /usr/bin/run-redis
+      - --bind
+      - 0.0.0.0
+      - --appendonly
+      - "yes"
+    image:
+      registry: registry.redhat.io
+      repository: rhel9/redis-6
+      version: "sha256:031a5a63611e1e6a9fec47492a32347417263b79ad3b63bcee72fc7d02d64c94"
+      pullPolicy: IfNotPresent
+      version: latest
+  initContainerImage:
+    curl:
+      registry: registry.access.redhat.com
+      repository: ubi9/ubi-minimal
+      version: "latest"
+      imagePullPolicy: IfNotPresent
 
 fulcio:
   namespace:
     name: fulcio-system
     create: false
   createcerts:
-    enabled: false
+    enabled: true
   server:
+    image:
+      registry: quay.io
+      repository: rcook/fulcio
+      version: v1.3.1
     secret: fulcio-secret-rh
     ingress:
       http:
@@ -47,6 +98,10 @@ fulcio:
           Type: email
 
 tuf:
+  deployment:
+    registry: quay.io
+    repository: ablock/tuf-server
+    version: "sha256:c4f534807b331e97b107d908b7e0cf14a896399bc372bca6a2c7e4f6d730807c"
   namespace:
     name: tuf-system
     create: false
@@ -68,6 +123,11 @@ ctlog:
     name: ctlog-system
     create: false
   enabled: true
+  server:
+    image:
+      registry: quay.io
+      repository: rcook/ct_server
+      version: v0.6.4-dirty
   createctconfig:
     logPrefix: sigstorescaffolding
     backoffLimit: 30
