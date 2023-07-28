@@ -2,13 +2,14 @@ trillian:
   enabled: true
   createdb:
     image:
-      registry:  gcr.io
-      repository: trillian-opensource-ci/db_server
-      version: "sha256:22b7fddcb4bafc5692760d84dca5e86294363a94e8f0ecb8f5c39364d436e6d5"
+      registry:  ghcr.io
+      repository: sigstore/scaffolding/createdb
+      pullPolicy: IfNotPresent
+      version: sha256:9aa98492115c465b0cecfd6dbb04411a40c0d2d7e5d7c510f5646bd1d825e3c7
   initContainerImage:
     netcat:
       registry: quay.io
-      repository: rcook/netcat
+      repository: securesign/netcat
       version: v1.0.0
     curl:
       registry: registry.access.redhat.com
@@ -21,12 +22,12 @@ trillian:
   logserver:
     image:
       registry: quay.io
-      repository: rcook/trillian_log_server
+      repository: securesign/trillian_log_server
       version: v1.2.2
   logsigner:
     image:
       registry: quay.io
-      repository: rcook/trillian_log_signer
+      repository: securesign/trillian_log_signer
       version: v1.2.2
 
 rekor:
@@ -36,8 +37,8 @@ rekor:
   server:
     image:
       registry: quay.io
-      repository: rcook/rekor-server
-      version: v1.2.2-dirty
+      repository: securesign/rekor-server
+      version: v1.2.2
     ingress:
       className: ""
       annotations:
@@ -74,7 +75,7 @@ fulcio:
   server:
     image:
       registry: quay.io
-      repository: rcook/fulcio
+      repository: securesign/fulcio
       version: v1.3.1
     secret: fulcio-secret-rh
     ingress:
@@ -126,8 +127,8 @@ ctlog:
   server:
     image:
       registry: quay.io
-      repository: rcook/ct_server
-      version: v0.6.4-dirty
+      repository: securesign/ct_server
+      version: v0.6.4
   createctconfig:
     logPrefix: sigstorescaffolding
     backoffLimit: 30
