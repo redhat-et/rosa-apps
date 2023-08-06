@@ -130,7 +130,7 @@ ctlog:
       repository: securesign/ct_server
       version: v0.6.4
   createctconfig:
-    logPrefix: sigstorescaffolding
+    logPrefix: scaffolding
     backoffLimit: 30
 
 copySecretJob:
