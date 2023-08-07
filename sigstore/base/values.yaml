@@ -1,11 +1,5 @@
 trillian:
   enabled: true
-  createdb:
-    image:
-      registry:  ghcr.io
-      repository: sigstore/scaffolding/createdb
-      pullPolicy: IfNotPresent
-      version: sha256:9aa98492115c465b0cecfd6dbb04411a40c0d2d7e5d7c510f5646bd1d825e3c7
   initContainerImage:
     netcat:
       registry: quay.io
@@ -19,26 +13,12 @@ trillian:
   namespace:
     name: trillian-system
     create: false
-  logserver:
-    image:
-      registry: quay.io
-      repository: securesign/trillian_log_server
-      version: v1.2.2
-  logsigner:
-    image:
-      registry: quay.io
-      repository: securesign/trillian_log_signer
-      version: v1.2.2
 
 rekor:
   namespace:
     name: rekor-system
     create: false
   server:
-    image:
-      registry: quay.io
-      repository: securesign/rekor-server
-      version: v1.2.2
     ingress:
       className: ""
       annotations:
@@ -73,10 +53,6 @@ fulcio:
   createcerts:
     enabled: true
   server:
-    image:
-      registry: quay.io
-      repository: securesign/fulcio
-      version: v1.3.1
     secret: fulcio-secret-rh
     ingress:
       http:
@@ -124,11 +100,6 @@ ctlog:
     name: ctlog-system
     create: false
   enabled: true
-  server:
-    image:
-      registry: quay.io
-      repository: securesign/ct_server
-      version: v0.6.4
   createctconfig:
     logPrefix: scaffolding
     backoffLimit: 30
