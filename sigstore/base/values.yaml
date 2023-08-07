@@ -97,12 +97,16 @@ tuf:
 
 ctlog:
   namespace:
-    name: ctlog-system
     create: false
-  enabled: true
   createctconfig:
-    logPrefix: scaffolding
     backoffLimit: 30
+    enabled: true
+    initContainerImage:
+      curl:
+        registry: registry.access.redhat.com
+        repository: ubi9/ubi-minimal
+        version: latest
+        imagePullPolicy: IfNotPresent
 
 copySecretJob:
   enabled: true
