@@ -1,5 +1,43 @@
+rekor:
+  namespace:
+    name: rekor-system
+    create: false
+  server:
+    image:
+      registry: quay.io
+      repository: securesign/rekor-server
+      version: v1.2.2
+      pullPolicy: IfNotPresent
+    ingress:
+      className: ""
+      annotations:
+        route.openshift.io/termination: "edge"
+      hosts:
+        - host: rekor.apps.open-svc-sts.k1wl.p1.openshiftapps.com
+          path: /
+  createtree:
+    image:
+      registry: quay.io
+      repository: securesign/createtree
+      version: v0.6.4
+      pullPolicy: IfNotPresent
+  backfillredis:
+    image:
+      registry: quay.io
+      repository: securesign/backfill-redis
+      version: v1.2.2
+      pullPolicy: IfNotPresent
+
 trillian:
-  enabled: true
+  namespace:
+    create: false
+    name: trillian-system
+  createdb:
+    image:
+      registry: quay.io
+      repository: securesign/createdb
+      version: v0.6.4
+      pullPolicy: IfNotPresent
   initContainerImage:
     netcat:
       registry: quay.io
@@ -10,22 +48,6 @@ trillian:
       repository: ubi9/ubi-minimal
       version: latest
       imagePullPolicy: IfNotPresent
-  namespace:
-    name: trillian-system
-    create: false
-
-rekor:
-  namespace:
-    name: rekor-system
-    create: false
-  server:
-    ingress:
-      className: ""
-      annotations:
-        route.openshift.io/termination: "edge"
-      hosts:
-        - host: rekor.apps.open-svc-sts.k1wl.p1.openshiftapps.com
-          path: /
   redis:
     args:
       - /usr/bin/run-redis
@@ -38,7 +60,53 @@ rekor:
       repository: rhel9/redis-6
       version: "sha256:031a5a63611e1e6a9fec47492a32347417263b79ad3b63bcee72fc7d02d64c94"
       pullPolicy: IfNotPresent
-      version: latest
+
+  logSigner:
+    image:
+      registry: quay.io
+      repository: securesign/trillian_log_signer
+      version: v1.2.2
+      pullPolicy: IfNotPresent
+  logServer:
+    image:
+      registry: quay.io
+      repository: securesign/trillian_log_server
+      version: v1.2.2
+      pullPolicy: IfNotPresent
+  mysql:
+    gcp:
+      scaffoldSQLProxy:
+        registry: quay.io
+        repository: securesign/cloudsqlproxy
+        version: v0.6.4
+    image:
+      registry: quay.io
+      repository: securesign/trillian-db
+      version: v1.5.2
+      pullPolicy: IfNotPresent
+    args: []
+    securityContext:
+      fsGroup: 0
+    livenessProbe:
+      exec:
+        command:
+        - mysqladmin
+        - ping
+        - -h
+        - localhost
+        - -u
+        - $(MYSQL_USER)
+        - -p$(MYSQL_PASSWORD)
+    readinessProbe:
+      exec:
+        command:
+        - mysqladmin
+        - ping
+        - -h
+        - localhost
+        - -u
+        - $(MYSQL_USER)
+        - -p$(MYSQL_PASSWORD)
   initContainerImage:
     curl:
       registry: registry.access.redhat.com
@@ -52,8 +120,18 @@ fulcio:
     create: false
   createcerts:
     enabled: true
+    image:
+      registry: quay.io
+      repository: securesign/createcerts
+      version: v0.6.4
+      pullPolicy: IfNotPresent
   server:
     secret: fulcio-secret-rh
+    image:
+      registry: quay.io
+      repository: securesign/fulcio
+      version: v1.4.0
+      pullPolicy: IfNotPresent
     ingress:
       http:
         annotations:
@@ -73,12 +151,20 @@ fulcio:
         : IssuerURL: https://keycloak-keycloak.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore
           ClientID: sigstore
           Type: email
+        ? https://keycloak-keycloak-system.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore
+        : IssuerURL: https://keycloak-keycloak-system.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore
+          ClientID: sigstore
+          Type: email
+        ? https://keycloak-keycloak-system.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore-confidential
+        : IssuerURL: https://keycloak-keycloak-system.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore-confidential
+          ClientID: sigstore
+          Type: email
 
 tuf:
   deployment:
     registry: quay.io
-    repository: ablock/tuf-server
-    version: "sha256:c4f534807b331e97b107d908b7e0cf14a896399bc372bca6a2c7e4f6d730807c"
+    repository: securesign/tuf/server
+    version: latest
   namespace:
     name: tuf-system
     create: false
@@ -96,6 +182,12 @@ tuf:
           path: /
 
 ctlog:
+  server:
+    image:
+      registry: quay.io
+      repository: securesign/ct_server
+      version: v0.6.4
+      pullPolicy: IfNotPresent
   namespace:
     create: false
   createctconfig:
@@ -107,6 +199,17 @@ ctlog:
         repository: ubi9/ubi-minimal
         version: latest
         imagePullPolicy: IfNotPresent
+    image:
+      registry: quay.io
+      repository: securesign/createctconfig
+      version: v0.6.4
+      pullPolicy: IfNotPresent
+  createtree:
+    image:
+      registry: quay.io
+      repository: securesign/createtree
+      version: v0.6.4
+      pullPolicy: IfNotPresent
 
 copySecretJob:
   enabled: true
