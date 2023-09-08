@@ -6,7 +6,7 @@ helmCharts:
   releaseName: scaffolding
   valuesFile: values.yaml
   repo: https://sigstore.github.io/helm-charts
-  version: 0.6.22
+  version: 0.6.28
 resources:
   - ../../cluster-scope/base/core/namespaces/fulcio-system
   - ../../cluster-scope/base/core/namespaces/rekor-system
