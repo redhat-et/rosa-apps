@@ -2,6 +2,34 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
+  name: monitoring-prometheus
+  namespace: rekor-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheus-monitoring
+subjects:
+- kind: ServiceAccount
+  name: rekor-server
+  namespace: rekor-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: monitoring-prometheus
+  namespace: fulcio-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheus-monitoring
+subjects:
+- kind: ServiceAccount
+  name: fulcio-server
+  namespace: fulcio-system
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
   name: system:openshift:scc:anyuid
   namespace: fulcio-system
 roleRef:

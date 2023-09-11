@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app.kubernetes.io/name: fulcio  
+  name: fulcio-server-monitor
+  namespace: fulcio-system
+spec:
+  endpoints:
+  - interval: 30s
+    port: 2112-tcp
+    scheme: http
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: scaffolding

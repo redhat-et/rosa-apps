@@ -4,3 +4,4 @@ resources:
   #- tuf-root-secret-sealed.yaml
   - ../keycloak
   - ../../base
+  - ../monitoring
