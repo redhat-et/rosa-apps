@@ -2,5 +2,7 @@ apiVersion: v1
 kind: Namespace
 metadata:
     name: rekor-system
+    labels:
+        openshift.io/cluster-monitoring: true
     annotations:
         openshift.io/requester: octo-et-platform

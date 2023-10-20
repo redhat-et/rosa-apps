@@ -1,0 +1,51 @@
+---
+global:
+  appsSubdomain: apps.open-svc-sts.k1wl.p1.openshiftapps.com
+configs:
+  cosign_deploy:
+    enabled: true
+  fulcio:
+    namespace_create: false
+  rekor:
+    namespace_create: false
+
+# github.com/sigstore/helm-charts/charts
+scaffold:
+  fulcio:
+    server:
+      ingress:
+        http:
+          hosts:
+            - host: fulcio.apps.open-svc-sts.k1wl.p1.openshiftapps.com
+              path: /
+    config:
+      contents:
+        OIDCIssuers:
+          ? https://rh-oidc.s3.us-east-1.amazonaws.com/21o4ml1f5kchd6ee9nmh5dhc6efqba38
+          : IssuerURL: https://rh-oidc.s3.us-east-1.amazonaws.com/21o4ml1f5kchd6ee9nmh5dhc6efqba38
+            ClientID: sigstore
+            Type: kubernetes
+          ? https://keycloak-keycloak.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore
+          : IssuerURL: https://keycloak-keycloak.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore
+            ClientID: sigstore
+            Type: email
+          ? https://keycloak-keycloak-system.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore
+          : IssuerURL: https://keycloak-keycloak-system.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore
+            ClientID: sigstore
+            Type: email
+          ? https://keycloak-keycloak-system.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore-confidential
+          : IssuerURL: https://keycloak-keycloak-system.apps.open-svc-sts.k1wl.p1.openshiftapps.com/auth/realms/sigstore-confidential
+            ClientID: sigstore
+            Type: email
+  rekor:
+    server:
+      ingress:
+        hosts:
+          - host: rekor.apps.open-svc-sts.k1wl.p1.openshiftapps.com
+            path: /
+  tuf:
+    ingress:
+      http:
+        hosts:
+          - host: tuf.apps.open-svc-sts.k1wl.p1.openshiftapps.com
+            path: /
