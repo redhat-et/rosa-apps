@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - acme-operator.yaml
   # - dex.yaml
-  - sigstore.yaml
+  - trusted-artifact-signer.yaml
   # - tekton-chains.yaml
   - vault.yaml
