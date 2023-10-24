@@ -13,4 +13,3 @@ spec:
       name: rekor-private-key
       namespace: rekor-system
     type: Opaque
-
