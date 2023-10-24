@@ -2,14 +2,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sigstore
+  name: trusted-artifact-signer
 spec:
   destination:
     name: in-cluster
     namespace: fulcio-system
   project: rosa
   source:
-    path: sigstore/overlays/rosa
+    path: trusted-artifact-signer/overlays/tas
     repoURL: https://github.com/redhat-et/rosa-apps.git
     targetRevision: main
   syncPolicy:
