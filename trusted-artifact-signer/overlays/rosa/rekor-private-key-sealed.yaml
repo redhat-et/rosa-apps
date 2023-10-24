@@ -1,0 +1,16 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: rekor-private-key
+  namespace: rekor-system
+spec:
+  encryptedData:
+    private: AgB/9ud/QOYXvr9/WVfN4AdqOGEnCl+zt2Hx18iF6fIr4PwMrXjQGX+tvnNAOpSL8VaYHZ4zOPQQ31GaEVU+2KYhplOXGOY1zIyWAyo5HZtEw8qoOntOtK/phbb60kfNQQNZfvU+yWqKN5PXBKReaSDLyT59C/rYsVQF4tI2ba82CgNa+DM5nS0Zo2wdov0AA9iklK8XL5CYO3lO03AyXfyz/KAQ/mr+FW2C2ft21208CLemmT1RaOOTf+ECodOnu+BJhvR1XrtMcQvY9eBWhsY0CqWTrD9YWd1uJfOk+dQ4wpBg2nsBF147/PJyZ6BbuA7m1l7ilIKM/zTMIhwBiVSb8q+llV9xsnvBnX4KUR0EwVEizTcee+Vr6vH1xbOk5NXJA8K69tBYs6U+QW7I/Wcrpurkwaq9s2aMe2o8RyocA2psgPKh79FpLCnKlqpj0Q7aKuhDREf0269vMTu03Jz70bKS+Oes1JpP6sUn/s+z5ifJW0ssZcBNenFRi5i0Z/GePaYjhhrwhFwpU/L3cZyOTnskgGtyYU8vZPT9lwxYj1Zx1IN8bdihNIsts940j/aCKyw2LthkH324IwfVA18WNeZe1p0d35jKSltju1WxKjZPygnnDJAhznxF7voLmSOndEyxHAxe1U83e+ubC9uwui8po4SxO+eFOsAysst2+Wexzw/aDnNO2xBOF9IyOLVEfqdLY8KsAbuiCmCXrfWjlsKezkPzNljgYbaA0cAzjYCG5RIRL/oGBUONnlNUIw8v1fvWTzLX08dCld5PicMuu7JqptyTKB25oOlcwhIE4jrNN3VsRW95AB5fPfvfubDS0XEEqjU2zYnbOezT5IEL5SYG8wnAh2ORSnlFIk7p/Tyo1zBCKsWhpxdOo/6xjoJpfE2CToNvkQLfzwCkrYdfhzUXsmUHBZ2g+liQz6Pyn8WuDNnv3OgoDnmn722RzHU5sVxyCaXys1sosqzJ9h709rv0oD1/c7E5bCDwyCDjIHyCbQ==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: rekor-private-key
+      namespace: rekor-system
+    type: Opaque
+

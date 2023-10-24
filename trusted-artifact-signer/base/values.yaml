@@ -49,3 +49,4 @@ scaffold:
         hosts:
           - host: tuf.apps.open-svc-sts.k1wl.p1.openshiftapps.com
             path: /
+            
