@@ -7,3 +7,6 @@ resources:
   - chains-logging-cm.yaml
   - chains-scc.yaml
   - signing-secret-sealed.yaml
+  - deployment.yaml
+  - role.yaml
+  - rolebinding.yaml

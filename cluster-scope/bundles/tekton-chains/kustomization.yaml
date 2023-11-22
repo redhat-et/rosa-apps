@@ -5,3 +5,4 @@ resources:
   - ../../base/core/namespaces/tekton-chains
   - ../../base/rbac.authorization.k8s.io/clusterrolebindings/tekton-chains
   - ../../base/rbac.authorization.k8s.io/clusterroles/tekton-chains
+  - ../../../tekton-chains/overlays/rosa

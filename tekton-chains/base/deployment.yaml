@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tekton-chains-controller
+  namespace: tekton-chains
+  labels:
+    app.kubernetes.io/name: controller
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: default
+    app.kubernetes.io/part-of: tekton-chains
+    pipeline.tekton.dev/release: "devel"
+    version: "v0.14.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: controller
+      app.kubernetes.io/component: controller
+      app.kubernetes.io/instance: default
+      app.kubernetes.io/part-of: tekton-chains
+  template:
+    metadata:
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "false"
+      labels:
+        app: tekton-chains-controller
+        app.kubernetes.io/name: controller
+        app.kubernetes.io/component: controller
+        app.kubernetes.io/instance: default
+        app.kubernetes.io/part-of: tekton-chains
+        # # tekton.dev/release value replaced with inputs.params.versionTag in pipeline/tekton/publish.yaml
+        pipeline.tekton.dev/release: "devel"
+        version: "v0.14.0"
+    spec:
+      serviceAccountName: tekton-chains-controller
+      containers:
+        - name: tekton-chains-controller
+          image: gcr.io/tekton-releases/github.com/tektoncd/chains/cmd/controller:v0.14.0@sha256:b10b5a6298fe78ffeb72b7ed69794b0e7315a952482b9bff80858bc6746cbe4f
+          volumeMounts:
+            - name: signing-secrets
+              mountPath: /etc/signing-secrets
+            - name: oidc-info
+              mountPath: /var/run/sigstore/cosign
+          env:
+            - name: SYSTEM_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: METRICS_DOMAIN
+              value: tekton.dev/chains
+          securityContext:
+            allowPrivilegeEscalation: false
+            # User 65532 is the distroless nonroot user ID
+            runAsUser: 65532
+            runAsGroup: 65532
+      volumes:
+        - name: signing-secrets
+          secret:
+            secretName: signing-secrets
+        - name: oidc-info
+          projected:
+            sources:
+              # The "public good" instance supports tokens from EKS and GKE by default.
+              # The fulcio URL can also be redirected to an instance that has been
+              # configured to accept other issuers as well.  Removing this volume
+              # completely will direct chains to use alternate ambient credentials
+              # (e.g. GKE workload identity, SPIFFE)
+              - serviceAccountToken:
+                  path: oidc-token
+                  expirationSeconds: 600 # Use as short-lived as possible.
+                  audience: sigstore
